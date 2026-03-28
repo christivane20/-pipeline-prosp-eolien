@@ -1,0 +1,25 @@
+services:
+
+  postgis:
+    image: postgis/postgis:15-3.3
+    environment:
+      POSTGRES_DB: eolien_db
+      POSTGRES_USER: eolien
+      POSTGRES_PASSWORD: eolien123
+    ports:
+      - "5433:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  pgadmin:
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@eolien.fr
+      PGADMIN_DEFAULT_PASSWORD: admin123
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgis
+
+volumes:
+  pgdata:
