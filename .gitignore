@@ -1,0 +1,9 @@
+data/*.geojson
+data/*.csv
+data/*.zip
+data/*.tif
+data/*.gpkg
+data/znieff1/
+data/znieff2/
+__pycache__/
+*.pyc
